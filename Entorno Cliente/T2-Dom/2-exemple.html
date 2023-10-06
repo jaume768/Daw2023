@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="creaContingut()">Pitja aqui</button>
+    <button id="boto2">Pitja aqui 2</button>
+    <p id="titol">Titol de la pagina en llegra 40px</p>
+    <p>Aixo ha de dir "primer paragraf" en verd.</p>
+    <div id="contenidor">
+        <p>Test de color groc <span>exepte aquest de color verd</span></p>
+        <p>Test de color vermell <span>exepte aquest de color blau</span></p>
+        <p>Test de color verd <span>exepte aquest de color groc</span></p>
+    </div>
+    <div>
+        <p class="gran">Text gran (Tamany 20px)</p>
+        <p class="gran">Text gran (Tamany 20px)</p>
+        <p class="gran">Text gran (Tamany 20px)</p>
+        <p class="gran">Text gran (Tamany 20px)</p>
+        <p class="gran">Text gran (Tamany 20px)</p>
+        <p class="gran">Text gran (Tamany 20px)</p>
+        <p class="gran">Text gran (Tamany 20px)</p>
+        <p class="gran">Text gran (Tamany 20px)</p>
+        <p class="gran">Text gran (Tamany 20px)</p>
+    </div>
+    <script>
+        document.querySelector("#titol").style.fontSize = "40px";
+        
+        document.querySelectorAll("p")[1].innerHTML = "primer paragraf";
+        document.querySelectorAll("p")[1].style.color = "green";
+
+        var divs = document.querySelectorAll("div");
+        var nump1 = divs[0].querySelectorAll("p");
+        var nump2 = divs[1].querySelectorAll("p");
+
+        var coloresP = ["yellow","red","green"];
+        var coloresSpan = ["green","blue","yellow"]
+
+        for (let index = 0; index < nump1.length; index++) {
+            
+            nump1[index].style.color = coloresP[index];
+            nump1[index].querySelector("span").style.color = coloresSpan[index];
+            
+        }
+
+        for (let index = 0; index < nump2.length; index++) {
+            nump2[index].style.fontSize = "20px"
+        }
+
+        //innerHTML
+
+    
+        function creaContingut(){
+            document.querySelector("#contenidor").innerHTML += '<p class="gran">HTML modificat </p>';
+        }
+
+        document.querySelector("#boto2").addEventListener('click',creaContingut)
+
+    </script>
+</body>
+</html>

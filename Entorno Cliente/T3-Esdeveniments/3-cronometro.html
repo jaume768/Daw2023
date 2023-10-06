@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>00:00:00.000</h1>
+    <button onclick="stopInterval()">Pausa</button>
+    <button onclick="start()">Play</button>
+    <button onclick="reset()">Reset</button>
+
+    <script>        
+
+        var interval;
+
+        function initInterval(){
+            var inici = Date.now();
+
+            clearInterval(interval);
+
+            interval = setInterval(function(){
+                var ara = Date.now();
+                var rang = ara - inici;
+
+                document.querySelector("h1").innerHTML = parseDate(rang);
+            },10)
+            
+        }
+
+        function leadZero(time){
+            var timeParse = parseInt(time);
+            if (timeParse < 10){
+                return '0'+timeParse;
+            } else {
+                return timeParse;
+            }
+        }
+
+        function parseDate(milisegundos){
+            var data = new Date(milisegundos);
+
+            return `
+            ${leadZero(data.getHours()-1)}:${leadZero(data.getMinutes())}:${leadZero(data.getSeconds())}.${leadZero(data.getMilliseconds())}`;
+        }
+
+
+        function start(){
+            initInterval()
+            
+        }
+
+        function stopInterval(){
+            clearInterval(interval)
+        }
+
+        function reset(){
+            document.querySelector("h1").innerHTML = "00:00:00.000";
+        }
+    </script>
+</body>
+</html>

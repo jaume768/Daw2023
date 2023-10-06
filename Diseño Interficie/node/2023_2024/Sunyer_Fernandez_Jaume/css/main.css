@@ -1,0 +1,49 @@
+*{
+    box-sizing: border-box;
+    margin:0;
+    padding: 0;
+}
+
+#tuberia{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 100px;
+    width: 100px;
+    background: url('img/tuberia.png') no-repeat;
+    z-index: 2;
+}
+
+#container { /* Mario */
+    position: absolute;
+    bottom: 0;
+    margin-left: 20px;
+    width: 70px;
+    height: 80px;
+    overflow: hidden;
+    z-index: 1;
+    animation: mario-saliendo 3s forwards; 
+}
+
+#container img {
+    width: 800px; 
+    height:610px;
+    object-fit: cover; 
+    animation: mario-animation 1s steps(3) infinite;
+    animation-delay: 2.3s;
+}
+
+@keyframes mario-saliendo {
+    0% {
+        bottom: 0; 
+    }
+    100% {
+        bottom: 90px; 
+    }
+}
+
+@keyframes mario-animation {
+    100% {
+        transform: translateX(-200px); 
+    }
+}

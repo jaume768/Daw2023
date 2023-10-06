@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/poo-1/pom.xml" />
+        <option value="$PROJECT_DIR$/principioencapsulacion/pom.xml" />
+        <option value="$PROJECT_DIR$/tasquesCicliques/pom.xml" />
+        <option value="$PROJECT_DIR$/poo-2-dates/pom.xml" />
+        <option value="$PROJECT_DIR$/poo-3-funcionalinterface-comparator/pom.xml" />
+        <option value="$PROJECT_DIR$/AsteroidesApiNasa/pom.xml" />
+        <option value="$PROJECT_DIR$/AsteroidesApisConjunt/pom.xml" />
+      </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/poo-1/pom.xml" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" project-jdk-name="17" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>

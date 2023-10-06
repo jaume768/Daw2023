@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log("hello world")
+
+        // Variables
+            // a) no tenen tipus EXPLÏCIT
+            // b) si tenen tipus IMPLÍCIT
+            // c) VAR --> Àmbit de visibilitat de FUNCIÖ
+            // d) si no posem la paraula reservada "var" es produeic HOISTING
+            // e) TIPOS:
+            /*
+                - Boolean
+                - null <-- valor NULL
+                - undefined <-- variables SENSE valor
+                - Number
+                - String
+                - Symbol
+                - Object <-- arrays tambe
+                - Function <-- les funcions son valors
+            
+            */
+           // Els tipus son dinamics
+
+        var a = 3;
+        var b = 3.4;
+        var c = "hola";
+        var d = {
+            nom:'joan',
+            cognom:'galmes'
+        }
+        var e;
+
+        var ab = a + b;
+        var ac = a + c;
+        var ad = a + d;
+        var ae = a + e;
+
+        console.log(ab,typeof ab);
+        console.log(ac,typeof ac);
+        console.log(ad,typeof ad);
+        console.log(ae,typeof ae);
+
+        // functions
+
+        function suma(a,b){
+            return a+b;
+        }
+
+        var f = suma(2,3);
+        var g = suma;
+        var h = g(2,3);
+
+        // funcions
+
+        function resta(a,b){
+            return a-b;
+        }
+        
+    </script>
+</body>
+</html>

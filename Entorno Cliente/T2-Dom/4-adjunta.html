@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Foto</h2>
+    <input id="urlFoto">
+    <button onclick="adjuntaFoto()">Adjunta</button>
+    <div class="fotos">
+        
+    </div>
+</body>
+<script>
+    function adjuntaFoto(){
+        var foto = document.querySelector("#urlFoto").value
+
+        document.querySelector(".fotos").innerHTML+= `<img src="${foto}" alt="" style = "max-width: 100px">`
+    }
+</script>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        const familiaGalmes = {
+          nombre: 'Galmés',
+          miembros: ['pare', 'mare', 'fill', 'filla'],
+          tareas: ['posar la rentadora', 'fer la cuina neta', 'fer el bany net'],
+          semanas: 52,
+        };
+
+        const familiaDuran = {
+          nombre: 'Duran',
+          miembros: ['pare', 'mare', 'fill', 'filla'],
+          tareas: ['planxar', 'fer el bany net'],
+          semanas: 52,
+        };
+
+        const familiaLiceu = {
+          nombre: 'Liceu',
+          miembros: ['pare', 'mare', 'fill', 'filla gran', 'filla petita'],
+          tareas: ['posar la rentadora', 'fer la cuina neta', 'netejar la casa', 'planxar', 'fer el bany net'],
+          semanas: 52,
+        };
+
+        function Planificar(familia){
+            let miembroIndex = 0;
+
+            for (let semana = 1; semana <= familia.semanas; semana++) {
+                miembroIndex = (miembroIndex > familia.miembros.length-1) ? 0 : miembroIndex;
+                let salir = "";
+                let planificacio = {};
+
+                for (let i = 0; i < familia.tareas.length; i++) {
+
+                    let tarea = familia.tareas[i];
+
+                    let persona = familia.miembros[miembroIndex];
+
+                    if (persona === undefined){
+                        
+                        let random = Math.floor(Math.random() * (familia.miembros.length-1));
+                        let persona = familia.miembros[random];
+
+                        salir += (tarea + " " + persona + "| ")
+                        
+                    } else {
+
+                        salir += (tarea + " " + persona + "| ")
+                    }
+
+                    ++miembroIndex;
+
+                }
+
+                console.log("semana " + semana + ": " + salir)
+
+
+            }
+
+        }
+
+        Planificar(familiaLiceu)
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+version: "3.9"
+services:
+  node:
+    image: node:20-bullseye
+    tty: true
+    stdin_open: true
+    expose:
+      - 3000
+    ports:
+      - "3000:3000"  
+    volumes:
+      - ./2023_2024/:/app

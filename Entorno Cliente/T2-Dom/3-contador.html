@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="sumar()">sumar</button>
+    <div class="contenidor">
+        <h1>0</h1>
+    </div>
+    <script>
+        function sumar(){
+            var num = document.querySelector(".contenidor h1").innerHTML;
+
+            document.querySelector(".contenidor h1").innerHTML = parseInt(num) + 1;
+        }
+    </script>
+</body>
+</html>

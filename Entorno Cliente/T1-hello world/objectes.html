@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // objectes
+
+        var aitana = {
+            nom: "aitana",
+            cognom1: "oliver",
+            cognom2: "perello"
+        }
+
+        // les funcions poden ser constructors d'objectes
+
+        function Persona(nom,cogonm1,cognom2){
+            this.nom = nom;
+            this.cognom1 = cogonm1;
+            this.cognom2 = cognom2;
+        }
+
+        var marta = new Persona("Marta","Gomila","Gomila")
+
+        // ELs objectes son PROTOTIPICS
+        aitana.ulls = 2;
+        marta.cames = 2;
+
+        // ojo
+
+        var persones = [marta,aitana];
+
+
+        for(var i = 0; i< persones.length; i++){
+            console.log(persones[i])
+        }
+
+        // arrays
+
+        var humans = [];
+        humans.push(marta);
+
+        //objectes vs arrays
+
+        console.log(marta.nom,marta["nom"])
+
+        
+
+    </script>
+</body>
+</html>

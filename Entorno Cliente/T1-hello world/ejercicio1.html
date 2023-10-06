@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1 crea una funcio que resolgui funcioncs de segon grau
+        function resolver(a1,b1,c1){
+
+            var a = parseFloat(a1);
+            var b = parseFloat(b1);
+            var c = parseFloat(c1);
+
+            if (isNaN(a) || isNaN(b) || isNaN(c)){
+                return {
+                    r1:"no te resultat",
+                    r2:"no te resultat"
+                }    
+            }
+
+            var resultat1 = (-b + Math.sqrt(Math.pow(b,2)-4*a*c))/(2*a);
+            var resultat2 = (-b - Math.sqrt(Math.pow(b,2)-4*a*c))/(2*a);
+
+            return {
+                r1:resultat1,
+                r2:resultat2
+            }
+        }
+
+        function palindroma(palabra){
+            var palabraInversa = palabra.split("").reverse().join("");
+            return (palabra === String(palabraInversa));
+        }
+
+        console.log(resolver(2,3,1))
+        console.log(palindroma("anna"))
+
+    </script>
+</body>
+</html>

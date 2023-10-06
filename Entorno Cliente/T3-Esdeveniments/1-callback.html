@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // funcio que permeti qualsevol tipus d'operació
+
+        function operar(a,b,operacio){
+            return operacio(a,b);
+        }
+
+        function suma(a,b){return a+b;}
+
+        function resta(a,b){return a-b;}
+
+        function multiplicar(a,b){return a*b;}
+
+        function dividir(a,b) {return a/b;}
+
+
+        var resultatSuma = operar(2,3,suma);
+        var resultatResta = operar(2,3,resta);
+
+        var resultat = operar(2,3,function(param1,param2){
+            return param1^param2;
+        })
+
+        console.log(resultatSuma,resultatResta,resultat)
+
+    </script>
+</body>
+</html>

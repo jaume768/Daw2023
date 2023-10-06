@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="input">
+    <button onclick="iniciar()">Go!</button>
+    <div>
+    </div>
+    <script>
+
+        var interval;
+        
+
+        function iniciar(){
+            
+            clearInterval(interval);
+
+            var tiempo = document.querySelector("#input").value;
+
+            if(isNaN(tiempo) || tiempo <= 0){
+                document.querySelector("div").innerHTML = "ERROR!";
+            } else {
+                var fechaFinal = new Date().getTime() + tiempo * 1000;
+                initInterval(fechaFinal)
+            }
+
+        }
+
+        function initInterval(fechaFinal){
+
+            interval = setInterval(function(){
+
+                var ahora = new Date().getTime();
+                var tiempoRestante = Math.floor((fechaFinal-ahora)/1000);
+                
+                document.querySelector("div").innerHTML = tiempoRestante;
+
+                if(tiempoRestante <= 0){
+                    clearInterval(interval);
+                    document.querySelector("div").innerHTML = "SORPRESA!";
+                }
+
+            },10)
+
+        }
+
+    </script>
+</body>
+</html>
