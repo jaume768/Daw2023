@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <form action="post" action="https://politecnicllevant.cat">
+            Nom
+            <input name="Nom">
+            Telefon
+            <input name="Telefon">
+            Contra
+            <input name="Contrasenya">
+            id
+            <input nem="id">
+            <input type="submit" value="Enviar">
+        </form>
+    </div>
+    <script>
+        
+        document.querySelector("form").addEventListener('submit',function(ev){
+            ev.preventDefault();
+
+            var valors = document.querySelectorAll("input");
+            var nom = valors[0].value;
+            var telefon = valors[1].value;
+            var contra = valors[2].value;
+            var id = valors[3].value;
+
+            if(nom === ""){
+                valors[0].style.backgroundColor = "red";
+            }
+            if(telefon)
+
+        })
+
+    </script>
+</body>
+</html>
