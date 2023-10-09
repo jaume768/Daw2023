@@ -1,22 +1,22 @@
 package Asteroides;
 
-import Apis.Api;
+import Apis.Font;
 
-import java.util.Collection;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 public class AsteroideService {
 
-    private Api font;
+    private Font fonts;
 
-    public AsteroideService(Api font){
-        this.font = font;
+    public AsteroideService(Font fonts){
+        this.fonts = fonts;
     }
 
     public Asteroide getMaxAsteroide() {
 
-        List <Asteroide> asteroides = this.font.getAsteroideByDate();
+        List <Asteroide> asteroides = this.fonts.getAsteroideByDate();
 
         Collections.sort(asteroides, (a1,a2) -> Float.compare(a2.getDiametre(),a1.getDiametre()));
 
@@ -24,7 +24,7 @@ public class AsteroideService {
     }
 
     public Asteroide getMinAsteroide() {
-        List <Asteroide> asteroides = this.font.getAsteroideByDate();
+        List <Asteroide> asteroides = this.fonts.getAsteroideByDate();
 
         Collections.sort(asteroides, (a1,a2) -> Float.compare(a2.getDiametre(),a1.getDiametre()));
 
@@ -32,6 +32,22 @@ public class AsteroideService {
     }
 
     public List<Asteroide> getPerillosos() {
-        return null;
+
+        List <Asteroide> asteroides = this.fonts.getAsteroideByDate();
+        List <Asteroide> asteroidesPersillosos = new ArrayList<>();
+
+        for (Asteroide asteroide : asteroides) {
+            if (asteroide.isEsPerillos()) {
+                asteroidesPersillosos.add(asteroide);
+            }
+        }
+
+        for (Asteroide asteroide : asteroides) {
+            System.out.println("Nombre: " + asteroide.getNom());
+            System.out.println("Diámetro: " + asteroide.getDiametre());
+            System.out.println("----------------------");
+        }
+
+        return asteroidesPersillosos;
     }
 }

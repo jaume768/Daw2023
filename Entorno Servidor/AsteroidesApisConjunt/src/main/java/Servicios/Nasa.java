@@ -1,19 +1,16 @@
 package Servicios;
 
-import Apis.Api;
+import Apis.Font;
 import Asteroides.Asteroide;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import org.example.Connexio;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
-public class Nasa implements Api {
+public class Nasa implements Font {
 
     private final String api = "tzw4J9OhF5l72FdVgN1tikABuLlO4ThFixaJCPj3";
     private final String URL_NASA = "https://api.nasa.gov/neo/rest/v1/feed";
