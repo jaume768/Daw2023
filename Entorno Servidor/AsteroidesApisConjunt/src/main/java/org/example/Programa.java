@@ -1,15 +1,24 @@
 package org.example;
 
+import Asteroides.Asteroide;
 import Asteroides.AsteroideService;
 import Servicios.Nasa;
 import Servicios.Politecnic;
+
+import java.util.List;
 
 public class Programa {
     public void programa(){
 
         Inputs in = new Inputs();
+        Ouputs ou = new Ouputs();
 
-        String apiTriada = in.PedriApi();
+        String apiTriada = "";
+
+        do {
+            ou.perdirApi();
+            apiTriada = in.PedriApi();
+        } while (!esApiValida(apiTriada));
 
         AsteroideService asteroideService = null;
 
@@ -19,22 +28,31 @@ public class Programa {
             asteroideService = new AsteroideService(new Politecnic());
         }
 
-
         int Triar = 0;
 
         while (Triar != 4){
+
+            ou.pedirMenu();
+
+
+
             Triar = in.Menu();
 
             if (Triar == 1){
-                System.out.println(asteroideService.getMinAsteroide().getNom());
+                ou.imrimirAsteroide(asteroideService.getMinAsteroide());
             } else if (Triar == 2) {
-                System.out.println(asteroideService.getMaxAsteroide().getNom());
+                ou.imrimirAsteroide(asteroideService.getMaxAsteroide());
             } else if (Triar == 3){
-                asteroideService.getPerillosos();
+                ou.imprimirAsteroides(asteroideService.getPerillosos());
             }
 
         }
 
+    }
+
+    private boolean esApiValida(String input) {
+
+        return input.equals("nasa") || input.equals("politecnic");
 
     }
 

@@ -1,0 +1,26 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.backgorund {
+  background-color: #FF0000;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+
+.inner:nth-child(1) {
+  background-color: blue;
+}
+
+.inner:nth-child(2) {
+  background-color: yellow;
+}
+
+.inner:nth-child(3) {
+  background-color: aqua;
+}

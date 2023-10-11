@@ -10,7 +10,7 @@ create table productos(
 );
 
 -- Insertar datos en la tabla MyGuests
-INSERT INTO productos (id, nombre_producto, imagen_url,descripcion) VALUES (1, 'Camiseta', 'https://assets.stickpng.com/images/580b57fbd9996e24bc43bf75.png','Descripción random');
+INSERT INTO productos (id, nombre_producto, imagen_url,descripcion) VALUES (1, 'Camiseta', '','Descripción random');
 
 INSERT INTO productos (id, nombre_producto, imagen_url,descripcion) VALUES (2,'Mi reina preciosa','https://i.pinimg.com/280x280_RS/86/e4/2d/86e42defe7f484f8fdd89705c0a738dd.jpg','La chica de mis ojos');
 

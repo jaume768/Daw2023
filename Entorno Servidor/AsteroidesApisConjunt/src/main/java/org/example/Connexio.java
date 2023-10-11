@@ -30,8 +30,8 @@ public class Connexio {
 
             in.close();
             jsonResponse = response.toString();
-        } catch (Exception var10) {
-            var10.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
         return jsonResponse;
