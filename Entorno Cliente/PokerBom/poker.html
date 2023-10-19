@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        
+    </div>
+    <script>
+
+        var parametros = new URL(location.href).searchParams;
+        var trucos = parametros.get("trucos");
+        container = document.querySelector(".container")
+
+        function init(){
+            container.innerHTML = '<button onclick="init()">Play</button>';
+            var cartasPuestas = []
+            mostrarCartas(cartasPuestas)
+        }
+
+        function metercarta(carta){
+            
+            container.innerHTML += `<img src="./cards/${carta}.png" alt="">`;
+
+        }
+
+        function meterFrase(){
+            container.innerHTML += '<p></p>';
+        }
+
+        function mostrarCartas(cartasPuestas){
+
+            numeros = ["2","3","4","5","6","7","8","9","10","jack","king","queen"];
+            tipos = ["clubs","diamonds","hearts","spades"]
+
+            var cartasDisponibles = [];
+
+            for (var i = 0; i < tipos.length; i++) {
+                for (var j = 0; j < numeros.length; j++) {
+                    cartasDisponibles.push(`${numeros[j]}_of_${tipos[i]}`);
+                }
+            }
+
+            for(let i = 0; i < 5; i++){
+
+                var numero = Math.floor(Math.random() * cartasDisponibles.length);
+                
+                metercarta(cartasDisponibles[numero])
+
+                cartasPuestas.push(`${cartasDisponibles[numero]}`)
+
+                cartasDisponibles.splice(numero, 1);
+
+            }
+            
+            meterFrase()
+
+            verificarDuplicados(cartasPuestas);
+            
+        }
+
+        function verificar(cartasPuestas){
+            for (let i = 0; i < cartasPuestas.length - 1; i++) {
+                for (let j = i + 1; j < cartasPuestas.length; j++) {
+                    var numeroCartaI = cartasPuestas[i].split('_')[0]; 
+                    var numeroCartaJ = cartasPuestas[j].split('_')[0];
+                
+                    if (numeroCartaI === numeroCartaJ) {
+                        return true;
+                    }
+                }
+                
+                return false;
+            }
+        }
+
+        function verificarDuplicados(cartasPuestas) {
+            
+            if (verificar(cartasPuestas) || trucos === "true") {
+                document.querySelector("p").innerHTML = `<h2>Has ganado con una pareja!!!</h2>`;
+            } else {
+                document.querySelector("p").innerHTML = `<h2>Has perdido no hay ninguna pareja!</h2>`;
+            }
+
+        }
+
+    
+        init()
+        
+    </script>
+</body>
+</html>

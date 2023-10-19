@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        
+    </div>
+    <script>
+        function init(){
+            
+            pintaImatge(1)
+            pintaEspai()
+
+            var lletres = "abcdefghijklmnopqrstuvwxyz".split("");
+
+            for(var i = 0; i<lletres.length; i++){
+                pintaLletra(lletres[i])
+            }
+        }
+
+        function pintaEspai(){
+            document.querySelector("#app").innerHTML += `<div><div/>`
+        }
+
+        function pintaImatge(num){
+            document.querySelector("#app").innerHTML += `<img src="./img/${num}.png" alt="">`
+        }
+
+        function pintaLletra(lletra){
+            document.querySelector("#app").innerHTML += `<button onclick= "play('${lletra}')">${lletra}</button>`
+        }
+
+        init();
+    </script>
+</body>
+</html>

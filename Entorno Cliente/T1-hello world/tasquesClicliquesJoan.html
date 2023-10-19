@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Membre(nom){
+            this.nom = nom;
+        }
+
+        function Tasca(nom){
+            this.nom = nom;
+        }
+
+        function TascaManager(membres,tasques,setmanes){
+
+            return [];
+
+        }
+
+    
+        function pintarConsola(TascaManager){
+
+        }
+
+        function init(){
+
+            var membresGalmes = [
+                new Membre("Pare"),
+                new Membre("Mare"),
+                new Membre("Fill"),
+                new Membre("Filla")
+            ]
+
+            var tasquesGalmes = [
+                new Tasca("Rentadora"),
+                new Tasca("cuina neta"),
+                new Tasca("bany net")
+            ]
+
+            var planificacioGalmes = 52;
+
+            var membresDuran = [
+                new Membre("Pare"),
+                new Membre("Mare"),
+                new Membre("Fill"),
+                new Membre("Filla")
+            ]
+
+            var tasquesDuran = [
+                new Tasca("Planxar"),
+                new Tasca("bany net")
+            ]
+
+            var planificacioDuran = 4;
+
+            var membresLinceu = [
+                new Membre("Pare"),
+                new Membre("Mare"),
+                new Membre("Fill"),
+                new Membre("Filla gran"),
+                new Membre("Filla petita"),
+            ]
+
+            var tasquesLinceu = [
+                new Tasca("Rentadora"),
+                new Tasca("cuina neta"),
+                new Tasca("casa neta"),
+                new Tasca("Planxar"),
+                new Tasca("bany net")
+            ]
+
+            var planificacioLinceu = 12;
+
+            var distribucioGalmes = TascaManager(membresGalmes,tasquesGalmes,planificacioGalmes);
+            var distribucioDuran = TascaManager(membresDuran,tasquesDuran,planificacioDuran);
+            var distribucioLinceu = TascaManager(membresLinceu,tasquesGalmes,planificacioLinceu);
+
+        }
+
+        init()
+
+    </script>
+</body>
+</html>

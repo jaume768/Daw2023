@@ -1,0 +1,23 @@
+/*
+
+@import url('https://fonts.googleapis.com/css2?family=Autour+One&family=Black+Ops+One&family=Dancing+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Autour+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Autour+One&family=Dancing+Script&display=swap');
+
+*/
+@font-face {
+  font-family: "politecnic";
+  src:  url("./../../fonts/black/BlackOpsOne-Regular.ttf") format("truetye");
+}
+.inner:nth-child(1) {
+  background-color: blue;
+}
+
+.inner:nth-child(2) {
+  background-color: yellow;
+}
+
+.inner:nth-child(3) {
+  background-color: aqua;
+  font-family: "politecnic";
+}

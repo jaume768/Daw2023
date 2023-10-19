@@ -4,78 +4,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <button onclick="mostrarCartas()">Play</button>
-    </div>
+    <div id="app"></div>
+
     <script>
+        var joc;
 
-        var cartasPuestas = []
-
-        function verificarDuplicados() {
-            
-            var parejaEncontrada = false;
-            for (let i = 0; i < cartasPuestas.length - 1; i++) {
-                for (let j = i + 1; j < cartasPuestas.length; j++) {
-                    var numeroCartaI = cartasPuestas[i].split('_')[0]; // Obtén el número de la primera carta
-                    var numeroCartaJ = cartasPuestas[j].split('_')[0]; // Obtén el número de la segunda carta
-                
-                    if (numeroCartaI === numeroCartaJ) {
-                        parejaEncontrada = true;
-                        break; // Salir del bucle si se encuentra una pareja
-                    }
-                }
-                if (parejaEncontrada) {
-                    break; // Salir del bucle exterior si se encuentra una pareja
-                }
-            }
-        
-            if (parejaEncontrada) {
-                document.querySelector(".container").innerHTML += `<h2>Has ganado con una pareja!!!</h2>`;
-            } else {
-                document.querySelector(".container").innerHTML += `<h2>Has perdido no hay ninguna pareja!</h2>`;
-            }
-
+        function init(){
+            document.querySelector("#app").innerHTML+=`<button class="jugar" onclick="jugar()">Play!</button>`;
+            document.querySelector("#app").innerHTML+=`<button class="cerrarPoker" onclick="tancaJoc()">Tanca la finestra del joc</button>`;
+            document.querySelector("#app").innerHTML+=`<button class="cerrarTodo" onclick="tancaTot()">Tanca tot el programa</button>`;
         }
 
-        function mostrarCartas(){
-           numeros = ["2","3","4","5","6","7","8","9","10","jack","king","queen"];
-           tipos = ["clubs","diamonds","hearts","spades"]
-           
-            container = document.querySelector(".container")
-            container.innerHTML = '<button onclick="mostrarCartas()">Play</button>';
-
-            var cartasDisponibles = [];
-
-            for (var i = 0; i < tipos.length; i++) {
-                for (var j = 0; j < numeros.length; j++) {
-                    cartasDisponibles.push(`${numeros[j]}_of_${tipos[i]}`);
-                }
+        function tancaJoc(){
+            if (joc){
+                joc.close()
             }
-
-            for(let i = 0; i < 5; i++){
-
-                var numero = Math.floor(Math.random() * cartasDisponibles.length);
-                
-                container.innerHTML += `<img src="/cards/${cartasDisponibles[numero]}.png" alt="">`;
-
-                cartasPuestas.push(`${cartasDisponibles[numero]}`)
-
-                cartasDisponibles.splice(numero, 1);
-
-            }
-
-            
-            verificarDuplicados();
-
-            
         }
 
-        
+        function tancaTot(){
+            if (joc){
+                joc.close();
+            }
+            window.close();
+        }
 
-        mostrarCartas()
+        function promtTrampas(){
+            var respuesta = prompt('Quieres hacer trampas? (SI/NO)').toUpperCase();
+
+            return respuesta
+        }
+
+
+        function jugar(){
+            
+            var promt = promtTrampas();
+            var mensaje;
+            var decision = null;
+
+            switch (promt) {
+                case 'SI':
+                    mensaje = "Ah... eres un tramposo? Vamos a jugar fácil.";
+                    decision = true;
+                    break;
+                case 'NO':
+                    mensaje = "Eres muy honrado, pero seguro que perderás.";
+                    decision = false;
+                    break;
+                default:
+                    mensaje = "Por favor, responde con SI o NO.";
+                    break;
+            }
+
+            if (decision !== null) {
+                alert(mensaje);
+                var url = `poker.html?trucos=${decision}`;
+                window.open(url, "_blank", "top=300,height=300,width=800");
+            }
+        }
+
+        init()
+
     </script>
 </body>
 </html>

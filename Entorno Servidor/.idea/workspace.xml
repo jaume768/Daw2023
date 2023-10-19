@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="8a4c856b-14f2-4873-b832-d1704c0d0ed4" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../Despliegue de applicaciones/website/botiga.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../Despliegue de applicaciones/website/botiga.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Diseño Interficie/node/2023_2024/T1_css_sass2/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Diseño Interficie/node/2023_2024/T1_css_sass2/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Entorno Cliente/PokerBom/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Entorno Cliente/PokerBom/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Entorno Servidor.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AsteroidesApiNasa/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AsteroidesApiNasa/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AsteroidesApiNasa/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AsteroidesApiNasa/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AsteroidesApiNasa/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AsteroidesApiNasa/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AsteroidesApiNasa/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AsteroidesApiNasa/src/main/java/org/example/Asteroide.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AsteroidesApiNasa/src/main/java/org/example/AsteroideService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AsteroidesApiNasa/src/main/java/org/example/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AsteroidesApiNasa/src/main/java/org/example/NasaService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AsteroidesApiNasa/target/classes/org/example/Asteroide.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AsteroidesApiNasa/target/classes/org/example/AsteroideService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AsteroidesApiNasa/target/classes/org/example/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AsteroidesApiNasa/target/classes/org/example/NasaService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AsteroidesApisConjunt.rar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AsteroidesApisConjunt/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AsteroidesApisConjunt/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AsteroidesApisConjunt/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AsteroidesApisConjunt/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AsteroidesApisConjunt/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AsteroidesApisConjunt/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AsteroidesApisConjunt/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AsteroidesApisConjunt/src/main/java/Apis/Font.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AsteroidesApisConjunt/src/main/java/Asteroides/Asteroide.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AsteroidesApisConjunt/src/main/java/Asteroides/AsteroideService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AsteroidesApisConjunt/src/main/java/Asteroides/EspaiAeri.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AsteroidesApisConjunt/src/main/java/Asteroides/EspaiAeriI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AsteroidesApisConjunt/src/main/java/Asteroides/ObjecteCelestial.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AsteroidesApisConjunt/src/main/java/Asteroides/ObjecteCelestialService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AsteroidesApisConjunt/src/main/java/Servicios/Nasa.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AsteroidesApisConjunt/src/main/java/Servicios/Politecnic.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AsteroidesApisConjunt/src/main/java/org/example/Connexio.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AsteroidesApisConjunt/src/main/java/org/example/Inputs.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AsteroidesApisConjunt/src/main/java/org/example/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AsteroidesApisConjunt/src/main/java/org/example/Ouputs.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AsteroidesApisConjunt/src/main/java/org/example/Programa.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AsteroidesApisConjunt/target/classes/Apis/Font.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AsteroidesApisConjunt/target/classes/Asteroides/Asteroide.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AsteroidesApisConjunt/target/classes/Asteroides/AsteroideService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AsteroidesApisConjunt/target/classes/Asteroides/EspaiAeri.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AsteroidesApisConjunt/target/classes/Asteroides/EspaiAeriI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AsteroidesApisConjunt/target/classes/Asteroides/ObjecteCelestial.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AsteroidesApisConjunt/target/classes/Asteroides/ObjecteCelestialService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AsteroidesApisConjunt/target/classes/Servicios/Nasa.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AsteroidesApisConjunt/target/classes/Servicios/Politecnic.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AsteroidesApisConjunt/target/classes/org/example/Connexio.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AsteroidesApisConjunt/target/classes/org/example/Inputs.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AsteroidesApisConjunt/target/classes/org/example/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AsteroidesApisConjunt/target/classes/org/example/Ouputs.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AsteroidesApisConjunt/target/classes/org/example/Programa.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/HerenciaExamen/HerenciaExamen/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/HerenciaExamen/HerenciaExamen/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/HerenciaExamen/HerenciaExamen/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/HerenciaExamen/HerenciaExamen/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/HerenciaExamen/HerenciaExamen/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/HerenciaExamen/HerenciaExamen/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/HerenciaExamen/HerenciaExamen/src/main/java/org/example/Atleta.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/HerenciaExamen/HerenciaExamen/src/main/java/org/example/Ciclista.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/HerenciaExamen/HerenciaExamen/src/main/java/org/example/Corredor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/HerenciaExamen/HerenciaExamen/src/main/java/org/example/Federacio.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/HerenciaExamen/HerenciaExamen/src/main/java/org/example/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/HerenciaExamen/HerenciaExamen/src/main/java/org/example/Nadador.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/HerenciaExamen/HerenciaExamen/src/main/java/org/example/Triatleta.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/poo-2-dates/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/poo-2-dates/src/main/java/org/example/Data.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/poo-2-dates/src/main/java/org/example/DataStrings.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/poo-2-dates/src/main/java/org/example/DataVariables.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/poo-2-dates/src/main/java/org/example/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/poo-2-dates/target/classes/org/example/Data.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/poo-2-dates/target/classes/org/example/DataStrings.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/poo-2-dates/target/classes/org/example/DataVariables.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/poo-2-dates/target/classes/org/example/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/poo-3-funcionalinterface-comparator/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/poo-3-funcionalinterface-comparator/src/main/java/org/example/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/poo-3-funcionalinterface-comparator/src/main/java/org/example/Moix.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/poo-3-funcionalinterface-comparator/target/classes/org/example/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/poo-3-funcionalinterface-comparator/target/classes/org/example/Moix.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/principioencapsulacion/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/principioencapsulacion/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/principioencapsulacion/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/principioencapsulacion/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/principioencapsulacion/src/main/java/org/example/FifoInterfaz.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/principioencapsulacion/src/main/java/org/example/ListFifo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/principioencapsulacion/src/main/java/org/example/ListFifoTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/principioencapsulacion/src/main/java/org/example/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/principioencapsulacion/src/main/java/org/example/Persona.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/principioencapsulacion/sunyer_fernandez_jaume.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/principioencapsulacion/target/classes/org/example/FifoInterfaz.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/principioencapsulacion/target/classes/org/example/ListFifo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/principioencapsulacion/target/classes/org/example/ListFifoTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/principioencapsulacion/target/classes/org/example/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/principioencapsulacion/target/classes/org/example/Persona.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tasquesCicliques/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tasquesCicliques/src/main/java/org/example/Main.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 2
+}]]></component>
+  <component name="ProjectId" id="2Ww2sn5tzfRV2J5mGKlW4hSD707" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/Jaume Fernandez/Desktop/clase/clase-main/Segundo/Entorno Servidor",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8a4c856b-14f2-4873-b832-d1704c0d0ed4" name="Changes" comment="" />
+      <created>1697629532079</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1697629532079</updated>
+      <workItem from="1697629533181" duration="54000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
