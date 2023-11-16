@@ -1,0 +1,14 @@
+
+FROM php:7.4-apache
+
+RUN a2enmod rewrite
+
+RUN docker-php-ext-install mysqli
+
+COPY botiga/ /var/www/203botiga/
+COPY 203pagina1.html /var/www/203pagina1/
+COPY 203pagina2.html /var/www/203pagina2/
+
+EXPOSE 80
+
+CMD ["apache2-foreground"]

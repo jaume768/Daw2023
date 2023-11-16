@@ -1,0 +1,23 @@
+version: '3'
+services:
+  botiga:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    volumes:
+      - ./sites-enabled:/etc/apache2/sites-enabled
+  db:
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: botiga
+      MYSQL_USER: provauser
+      MYSQL_PASSWORD: contra
+    volumes:
+      - db_botiga:/var/lib/mysql 
+
+volumes:
+  db_botiga:
+

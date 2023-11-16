@@ -1,0 +1,8 @@
+
+FROM php:apache
+
+RUN docker-php-ext-install mysqli pdo_mysql
+
+COPY . /var/www/html
+
+EXPOSE 80

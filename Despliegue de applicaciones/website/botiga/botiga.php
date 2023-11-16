@@ -34,16 +34,19 @@
 
                 if ($result->num_rows > 0) {
                     while($row = $result->fetch_assoc()) {
+                        echo '<a href="fitxa.php?codi=' . $row["id"] . '">';
                         echo '<div class="col">';
                         echo '<div class="card bg-dark border-primary shadow" style="width: 12rem; margin-top: 10px; margin-left: 10px;">';
                         echo '<img src="' . $row["imagen_url"] . '" class="card-img-top" alt="..." style="height: 200px;">';
                         echo '<div class="card-body">';
                         echo '<h5 class="card-title text-white">' . $row["nombre_producto"] . '</h5>';
                         echo '<p class="card-text text-white">' . $row["descripcion"] . '</p>';
+                        echo '<p class="card-text text-white">' . $row["precio"] . '€</p>';
                         echo '<a href="#" class="btn btn-primary">Comprar</a>';
                         echo '</div>';
                         echo '</div>';
                         echo '</div>';
+                        echo '</a>';
                     }
                 } else {
                     echo "0 results";
