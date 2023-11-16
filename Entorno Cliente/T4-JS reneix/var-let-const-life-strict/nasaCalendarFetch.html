@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <input type="date" id="data">
+        <button onclick="fetchCalendario()">enviar</button>
+        <div id="asteroides">
+
+        </div>
+    </div>
+</body>
+<script>
+    function fetchCalendario(){
+        const data = document.querySelector("#data").value;
+        fetch("https://theteacher.codiblau.com/public/exercicis/nasa?date=" + data)
+            .then(function(resposta){
+                return resposta.json();
+            })
+            .then(function(asteroides){
+                console.log(asteroides)
+                document.querySelector("#asteroides").innerHTML = '<ul id = "llista"></ul>'
+                for(let i = 0; i<asteroides.length;i++){
+                    
+                    document.querySelector("#llista").innerHTML += `<li>${asteroides[i].asteroid_name}</li>`
+                }
+            })
+    }
+</script>
+</html>

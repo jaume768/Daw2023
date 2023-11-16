@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        function Peca(nom,color,moviments){
+            this.nom = nom;
+            this.color = color;
+            this.moviments = moviments;
+            this.jugar= function(){
+                return new Promise(function(resolve,reject){
+                    moviments();
+                    const important = "important";
+                    reject(important)
+                });
+                
+            }
+        }
+
+        function Escacs(){
+            const peo1blanc = new Peca("Peo","blanc",function(){
+                console.log("Peo 1 blanc")
+            })
+
+            const cavall1negre = new Peca("Cavall","negre",function(){
+                console.log("Cavall 1 negre")
+            })
+
+            const play = peo1blanc.jugar().then(function(resposta){
+                console.log(resposta)
+            }).catch(function(resposta){
+                console.error("ha anat malament")
+            });
+
+        }
+
+        (function(){
+            new Escacs();
+        })();
+
+    </script>
+</body>
+</html>

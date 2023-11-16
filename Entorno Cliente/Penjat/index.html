@@ -10,28 +10,152 @@
         
     </div>
     <script>
-        function init(){
-            
-            pintaImatge(1)
-            pintaEspai()
 
-            var lletres = "abcdefghijklmnopqrstuvwxyz".split("");
+        // models
+        var penjat;
+        function Lletra(valor, estat) {
+            // estat: no_seleccionat, OK, KO
+            this.valor = valor;
+            this.jugat = function () {
+                penjat.jugar(this.valor);
+                penjat.pintar();
+            };
+            this.estat = estat;
+            this.pintar = function () {
+                var nodeLletra = document.createElement("BUTTON");
+                nodeLletra.innerHTML = this.valor;
+                nodeLletra.addEventListener('click', () => this.jugat()); // Utiliza una función anónima para mantener el contexto de 'this'
+                if (this.estat === "OK") {
+                    nodeLletra.style.backgroundColor = "green";
+                } else if (this.estat === "KO") {
+                    nodeLletra.style.backgroundColor = "red";
+                }
+                return nodeLletra;
+            };
+        }
 
-            for(var i = 0; i<lletres.length; i++){
-                pintaLletra(lletres[i])
+
+        function Paraula(lletres){
+
+            this.lletres = lletres;
+            this.pintar = function(){
+                var result = [];
+                for (let index = 0; index < lletres.length; index++) {
+                    
+                    if(lletres[index].estat === "OK"){
+                        result.push(this.lletres[index].valor)
+                    }else {
+                        result.push("__")
+                    }
+                    
+                }
+                return result.join(" ")
             }
+
+        }
+
+        function Penjat(){
+
+            this.paraula;
+            this.lletres = [];
+
+            this.init = function (){
+
+                var lletres = "abcdefghijklmnopqrstuvwxyz".split("");
+
+                for(var i = 0; i<lletres.length; i++){
+                    var lletra = new Lletra(lletres[i],"no_seleccionat");
+                    this.lletres.push(lletra);
+                }
+                var paraules = ["casa","moix","taula","vinil","ca"];
+                var paraulaSelecionada = paraules[Math.floor(Math.random()*paraules.length)];
+
+                var lletresParaula = [];
+                for (let index = 0; index < paraulaSelecionada.length; index++) {
+
+                    for (let j = 0; j < this.lletres.length; j++) {
+                        
+                        if(paraulaSelecionada[index] === this.lletres[j].valor){
+                            lletresParaula.push(this.lletres[j])
+                        }
+                        
+                    }
+
+                }
+
+                this.paraula = new Paraula(lletresParaula);
+
+                this.pintar();
+            }
+            this.jugar = function(lletra){
+                var lletraSeleccionada;
+                for (let i = 0; i < this.lletres.length; i++) {
+                    if(this.lletres[i].valor === lletra){
+                        lletraSeleccionada = this.lletres[i];
+                    }
+                }
+                var trobada;
+
+                for (let i = 0; i < this.paraula.lletres.length; i++) {
+                    if(this.paraula.lletres[i] === lletraSeleccionada){
+                        trobada = true;
+                        break;
+                    }
+                    
+                }
+
+                if(trobada){
+                    lletraSeleccionada.estat = "OK";
+                } else {
+                    lletraSeleccionada.estat = "KO";
+                }
+
+            };
+            this.pintar = function(){
+                document.querySelector("#app").innerHTML = '<div id="imatge"></div>'
+                document.querySelector("#app").innerHTML += '<div id="lletres"></div>'
+                document.querySelector("#app").innerHTML += '<div id="paraula"></div>'
+
+                var numErrors = 0;
+
+                for (let i = 0; i < this.lletres.length; i++) {
+                    if(this.lletres[i].estat === "KO"){
+                        numErrors++;
+                    }
+                }
+
+
+                document.querySelector("#imatge").innerHTML = `<img src="./img/${numErrors+1}.png" alt="">`
+
+                for (let i = 0; i < this.lletres.length; i++) {
+                    //document.querySelector("#lletres").innerHTML += this.lletres[i].pintar()
+                    document.querySelector("#lletres").appendChild(this.lletres[i].pintar())
+                }
+
+
+
+                document.querySelector("#paraula").innerHTML += this.paraula.pintar();
+
+
+
+            };
+        }
+
+        
+
+        //vistes
+
+        function init(){
+            penjat  = new Penjat();
+            penjat.init();
         }
 
         function pintaEspai(){
             document.querySelector("#app").innerHTML += `<div><div/>`
         }
 
-        function pintaImatge(num){
-            document.querySelector("#app").innerHTML += `<img src="./img/${num}.png" alt="">`
-        }
-
-        function pintaLletra(lletra){
-            document.querySelector("#app").innerHTML += `<button onclick= "play('${lletra}')">${lletra}</button>`
+        function pintarParaula(paraula){
+            
         }
 
         init();

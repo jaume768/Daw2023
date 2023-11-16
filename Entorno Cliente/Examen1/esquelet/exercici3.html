@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Examen JS Vanilla</title>
+    <meta charset="UTF-8">
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Butterfly+Kids');
+
+        body {
+            background-color: #333;
+            font-family: 'Butterfly Kids', cursive;
+            color: white;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 60px;
+        }
+
+        main {
+            text-align: center;
+        }
+
+        canvas {
+            font-family: 'Butterfly Kids', cursive;
+        }
+
+        button {
+            font-family: 'Butterfly Kids', cursive;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>LES HORES</h1>
+    </header>
+    <main>
+        <div id="container"></div>
+        <canvas id="canvas" width="400" height="400"></canvas>
+        <input type="hidden" value="8" id="hours">
+        <input type="hidden" value="35" id="minutes">
+        
+        <input type="hidden" value="55" id="seconds">
+    </main>
+
+    <script src="clock.js"></script>
+    <script>
+        //ESCRIVIU LA VOSTRA SOLUCIÓ AQUÍ
+        document.querySelector("body").style.backgroundImage = "URL('https://as2.ftcdn.net/v2/jpg/03/29/04/09/1000_F_329040941_Dk7k6Ur8aywi5nBNostlSayJqxeNXnYb.jpg')"
+
+        document.querySelector("#container").innerHTML = '<input class="hours" id="hours" onchange = "comprobar()">'
+        document.querySelector("#container").innerHTML += '<input class="minutes" id="minutes" onchange = "comprobar()">'
+        document.querySelector("#container").innerHTML += '<input class="seconds" id="seconds" onchange = "comprobar()">'
+
+        var inputs = document.querySelectorAll("#container>input")
+        function comprobar(){
+            var correcte = true;
+            var hores = document.querySelector(".hours").value
+            var minuts = document.querySelector(".minutes").value
+            var segons = document.querySelector(".seconds").value
+
+            if(hores > 12){
+                alert("Hora incorrecta, format 12h");
+                document.querySelector(".hours").style.backgroundColor = "red"
+                correcte = false;
+            } else {
+                document.querySelector(".hours").style.backgroundColor = "white"
+            }
+
+            if(minuts > 59){
+                alert("minuts incorrectes");
+                document.querySelector(".minutes").style.backgroundColor = "red"
+                correcte = false;
+            } else {
+                document.querySelector(".minutes").style.backgroundColor = "white"
+            }
+
+            if(segons > 59){
+                alert("segons incorrectes");
+                document.querySelector(".seconds").style.backgroundColor = "red"
+                correcte = false;
+            } else {
+                document.querySelector(".seconds").style.backgroundColor = "white"
+            }
+            
+            if(correcte){
+                drawClock()
+            }
+        }
+
+        document.querySelector("#container").innerHTML += '<div id="botons"></div>'
+
+        document.querySelector("#botons").innerHTML += '<button onclick = "play()">play</button>'
+        document.querySelector("#botons").innerHTML += '<button onclick = "stopInterval()">Stop</button>'
+        document.querySelector("#botons").innerHTML += '<button onclick = "obrir()">horesMundials</button>'
+        document.querySelector("#botons").innerHTML += '<button onclick = "tancar()">TancarHoresMundials</button>'
+
+        var interval;
+
+        function play(){
+            var inici = Date.now();
+
+            clearInterval(interval);
+
+            interval = setInterval(function(){
+                var ara = Date.now();
+                var rang = ara - inici;
+
+                document.querySelector("#hours").value = parseHores(rang);
+                document.querySelector("#minutes").value = parseMinuts(rang);
+                document.querySelector("#seconds").value = parseSegons(rang);
+                drawClock()
+            },10)
+        }
+
+        function parseHores(milisegundos){
+            var data = new Date(milisegundos);
+
+            return `
+            ${data.getHours()-1}`;
+        }
+
+        function parseMinuts(milisegundos){
+            var data = new Date(milisegundos);
+
+            return `
+            ${data.getMinutes()}`;
+        }
+
+        function parseSegons(milisegundos){
+            var data = new Date(milisegundos);
+
+            return `
+            ${data.getSeconds()}`;
+        }
+
+        function stopInterval(){
+            clearInterval(interval)
+        }
+
+        var horesMundials;
+
+        function obrir(){
+            horesMundials = window.open("https://junior-report.cat/les-hores-del-mon/", "_blank", "top=300,height=600px,width=400px");
+        }
+
+        function tancar(){
+            if (horesMundials){
+                horesMundials.close()
+            }
+        }
+
+        comprobar()
+        drawClock()
+    </script>
+</body>
+
+</html>

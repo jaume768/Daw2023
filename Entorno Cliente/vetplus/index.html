@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script type="module">
+        "use strict";
+        import {getAnimals} from './services/AnimalService.js'
+
+        (async function(){
+            const animals = await getAnimals();
+            const appDiv = document.querySelector("#app");
+
+            const table = document.createElement("table");
+            const headerRow = document.createElement("tr");
+            headerRow.innerHTML = "<th>Nom</th><th>Accions</th>";
+            table.appendChild(headerRow);
+
+            animals.forEach(animal => {
+                const row = document.createElement("tr");
+                row.innerHTML = `<td>${animal.nom}</td><td><a href="fitxa.html?id=${animal.idanimal}">Editar</a></td>`;
+                table.appendChild(row);
+            });
+
+            appDiv.appendChild(table);
+        })();
+    </script>
+</body>
+</html>

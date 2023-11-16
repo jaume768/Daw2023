@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Animal</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script type="module">
+        "use strict";
+        import { getAnimal } from "./services/AnimalService.js";
+
+        (async function () {
+            const url = new URL(window.location.href);
+            const id = url.searchParams.get("id");
+
+            const animal = await getAnimal(id);
+            const appDiv = document.getElementById("app");
+
+            const form = document.createElement("form");
+            form.id = "animalForm";
+
+            const camps = [
+                { id: "nom", label: "Nom:", type: "text", value: animal.nom, required: true },
+                { id: "sexe", label: "MASC", type: "checkbox", value: "MASC", checked: animal.sexe === 'MASC' },
+                { id: "sexe", label: "FEM", type: "checkbox", value: "FEM", checked: animal.sexe === 'FEM' },
+                { id: "numregistre", label: "Número de registre:", type: "text", value: animal.numregistre, display: animal.tipus === 'ca' },
+                { id: "numFederat", label: "Número de federat:", type: "text", value: animal.numfederat, display: animal.tipus === 'cavall' },
+                { id: "tipus", label: "Tipus:", type: "select", options: ["Ca (de raça o no)", "Cavall (de carreres o no)", "Moix"], value: animal.tipus },
+            ];
+
+            camps.forEach((camp) => {
+                const label = document.createElement("label");
+                label.for = camp.id;
+                label.innerText = camp.label;
+
+                let input;
+                input = document.createElement("input");
+                input.type = camp.type;
+                input.id = camp.id;
+                input.name = camp.id;
+                input.value = camp.value || "";
+                if (camp.type === "checkbox" && camp.checked) {
+                    input.checked = true;
+                }
+                if (camp.display !== undefined) {
+                    label.style.display = camp.display ? "block" : "none";
+                    input.style.display = camp.display ? "block" : "none";
+                }
+
+                form.appendChild(label);
+                form.appendChild(input);
+            });
+
+            const guardarButton = document.createElement("button");
+            guardarButton.type = "submit";
+            guardarButton.innerText = "Guardar";
+            form.appendChild(guardarButton);
+
+            appDiv.appendChild(form);
+
+            form.addEventListener("submit", async function (event) {
+                event.preventDefault();
+                const formData = new FormData(form);
+                const animalData = {};
+                animalData['idanimal'] = null;
+                formData.forEach((value, key) => {
+                    if (key !== 'numFederat') {
+                        animalData[key] = value;
+                    }
+                });
+            
+                console.log(animalData);
+            
+                const url = "https://theteacher.codiblau.com/public/vetplus/save";
+                const method = "POST";
+            
+                try {
+                    const response = await fetch(url, {
+                        method: method,
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify(animalData),
+                    });
+                
+                    if (response.ok) {
+                        console.log("Animal guardado correctamente");
+                    } else {
+                        const errorData = await response.json();
+                        console.error(`Error al guardar el animal: ${errorData.message}`);
+                    }
+                } catch (error) {
+                    console.error("Error de red:", error);
+                }
+            });
+        })();
+    </script>
+</body>
+</html>

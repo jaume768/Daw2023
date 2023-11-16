@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <button id="prova1">prova1</button>
+        <button id="prova2">prova2</button>
+        <button id="prova3">prova3</button>
+    </div>
+    <div id="aeroports">
+        
+    </div>
+    <script>
+        "use strict";
+        function Penjat(){
+            this.lletres = []
+            this.init = function(){
+                console.log("init penjat")
+            }
+        }
+        (function(){
+            const penjat = new Penjat()
+            penjat.init()
+            const idbotons = ["prova1","prova2","prova3"]
+            for (let i = 0; i < idbotons.length; i++) {
+                document.querySelector(`#${idbotons[i]}`).addEventListener('click',function(){
+                    console.log(this.id)
+                })
+            }
+
+
+            fetch("https://theteacher.codiblau.com/public/exercicis/airports")
+                .then(function(resposta){
+                    return resposta.json();
+                })
+                .then(function(airports){
+                    document.querySelector("#aeroports").innerHTML = '<ul id = "llista"></ul>'
+                    for(let i = 0; i<20;i++){
+                        
+                        document.querySelector("#llista").innerHTML += `<li>${airports[i].name}</li>`
+                    }
+                })
+
+        })();
+    </script>
+</body>
+</html>

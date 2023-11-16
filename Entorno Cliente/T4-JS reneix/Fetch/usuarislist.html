@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script>
+        fetch("https://theteacher.codiblau.com/public/exercicis/other/usuaris/list")
+            .then(function(resposta){
+                return resposta.json();
+            })
+            .then(function(data){
+                const transportPromise = []
+                console.log(data)
+                for (let i = 0; i < data.length; i++) {
+
+                    const peticio = fetch("https://theteacher.codiblau.com/public/exercicis/other/usuaris/transport",{
+                        method: 'POST',
+                        headers:{
+                            'Content-Type':'application/x-www-form-urlencoded'
+                        },
+                        body:'idtransport=' + data[i].transport_idtransport                
+                    }).then(function(data2){
+                        return data2.json();
+                    })
+
+                    transportPromise.push(peticio)
+
+                    /*fetch("https://theteacher.codiblau.com/public/exercicis/other/usuaris/transport",{
+                        method: 'POST',
+                        headers:{
+                            'Content-Type':'application/x-www-form-urlencoded'
+                        },
+                        body:'idtransport=' + data[i].transport_idtransport                
+                    }).then(function(data2){
+                        return data2.json();
+                    }).then(function(urlimagen){
+                        console.log(urlimagen)
+                        document.querySelector("#app").innerHTML += `<p>${data[i].nom} ${data[i].cognom1}</p>`
+                        document.querySelector("#app").innerHTML += `<img src="${urlimagen.url}" alt="foto"></img>`
+                    })
+                    */
+                }
+
+                Promise.all(transportPromise).then(function(transports){
+                    for (let i = 0; i < data.length; i++) {
+                        
+                        document.querySelector("#app").innerHTML += `<p>${data[i].nom} ${data[i].cognom1}</p>`
+                        document.querySelector("#app").innerHTML += `<img src="${transports[i].url}" alt="foto"></img>`
+                        
+                    }
+                    document.querySelector("#app").innerHTML += `<p>Final llista</p>`        
+                })
+            })
+    </script>
+</body>
+</html>

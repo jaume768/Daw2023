@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app"></div>
+    <script>
+
+        var intervalTime = 1000;
+        var jugadores = [
+            { nombre: "juan", puntos: 999 },
+            { nombre: "jaume", puntos: 800 },
+            { nombre: "maría", puntos: 700 },
+            { nombre: "tomeu", puntos: 600 },
+            { nombre: "lucas", puntos: 500 },
+            { nombre: "ana", puntos: 200 },
+            { nombre: "neus", puntos: 150 },
+            { nombre: "pedro", puntos: 100 },
+            { nombre: "laura", puntos: 100 },
+            { nombre: "maria", puntos: 50 }
+        ];
+
+        function deshabilitarBotones() {
+            var botones = document.querySelectorAll('.boton');
+            botones.forEach(boton => {
+                boton.disabled = true;
+            });
+        }
+
+        function habilitarBotones() {
+            var botones = document.querySelectorAll('.boton');
+            botones.forEach(boton => {
+                boton.disabled = false;
+            });
+        }
+
+
+        function setDifficulty(difficulty) {
+            switch (difficulty) {
+                case 'Básica':
+                    intervalTime = 2000;
+                    break;
+                case 'Mediano':
+                    intervalTime = 1000;
+                    break;
+                case 'Dificil':
+                    intervalTime = 500; 
+                    break;
+                default:
+                    intervalTime = 2000;
+                    break;
+            }
+        }
+
+        function terminarJuego(nivel) {
+            var nombreJugador = prompt("¡Juego terminado! Ingresa tu nombre:");
+            if (nombreJugador) {
+                var puntosJugador = nivel * 100;
+                var jugador = {
+                    nombre: nombreJugador,
+                    puntos: puntosJugador
+                };
+
+                if(jugador.puntos > jugadores[9].puntos){
+                    jugadores.push(jugador);
+                    jugadores.sort(function(a, b) {
+                        return b.puntos - a.puntos;
+                    });
+                    jugadores.pop()
+                }
+
+                
+                console.log("Puntos guardados:", jugador);
+                mostrarJugadores()
+            } else {
+                console.log("No se ingresó un nombre. Puntos no guardados.");
+            }
+        }
+
+        function mostrarJugadores() {
+            
+            var listaJugadores = document.querySelector(".llistaJugadors");
+            if (listaJugadores) {
+                listaJugadores.remove();
+            }
+        
+            var nuevaListaJugadores = document.createElement("ul");
+            nuevaListaJugadores.className = "llistaJugadors";
+        
+            jugadores.forEach(function (jugador) {
+                var itemJugador = document.createElement("li");
+                itemJugador.textContent = `${jugador.nombre}: ${jugador.puntos} puntos`;
+                nuevaListaJugadores.appendChild(itemJugador);
+            });
+        
+            document.querySelector("#ranking").appendChild(nuevaListaJugadores);
+        }
+
+        
+        function Boton(color){
+            this.color = color;
+            this.pintar = function (){
+                return `<button class="boton ${this.color}" id="boton-${this.color}" onclick=simon.play('${this.color}')></button>`
+            }
+        }
+        
+        function Simon(){
+            this.botonsArray = [];
+            var colors = ["red","blue","yellow","green"]
+            var secuencia = [];
+            var nivel = 1;
+            var interval;
+            var paso = 0;
+            this.init = function (){
+                var nodeBoto;
+                for (let i = 0; i < colors.length; i++) {
+                    nodeBoto = new Boton(colors[i]);
+                    this.botonsArray.push(nodeBoto)
+                }
+                this.pintar()
+            
+            }
+            this.pintar = function (){
+                document.querySelector("#app").innerHTML = '';
+                document.querySelector("#app").innerHTML += '<div id = "botonsjoc"></div>'
+
+                for (let i = 0; i < this.botonsArray.length; i++) {
+                    document.querySelector("#botonsjoc").innerHTML += this.botonsArray[i].pintar()
+                }
+                document.querySelector("#app").innerHTML += '<div id = "botones"></div>'
+                document.querySelector("#app").innerHTML += '<div id = "ranking"></div>'
+                document.querySelector("#botonsjoc").innerHTML += '<h2 id = "turno"></h2>'
+
+                document.querySelector("#botones").innerHTML += '<button class="play" onclick=simon.mostrarSecuencia()>play</button>'
+                document.querySelector("#botones").innerHTML += `<button class="difficulty-button">Básica</button>`
+                document.querySelector("#botones").innerHTML += `<button class="difficulty-button">Mediano</button>`
+                document.querySelector("#botones").innerHTML += `<button class="difficulty-button">Dificil</button>`
+                var botones = document.querySelectorAll('.boton');
+                botones.forEach(boton => {
+                    boton.addEventListener('mouseover', function(){
+                        this.style.filter = "brightness(1.5)";
+                    });
+                
+                    boton.addEventListener('mouseout', function(){
+                        this.style.filter = "brightness(1)";
+                    });
+                });
+                var botonesdificultad = document.querySelectorAll('.difficulty-button');
+                botonesdificultad.forEach(boton => {
+                    boton.addEventListener('click', function(event){
+                        event.target.style.background = "#4CAF50";
+                        setDifficulty(this.innerHTML);
+                    });
+                });
+                mostrarJugadores()
+            }
+
+            this.actualizarTurno = function(espera) {
+                var turnoElement = document.getElementById("turno");
+                turnoElement.textContent = espera ? "Espera..." : "Tu turno";
+            };
+
+            this.mostrarSecuencia = function () {
+                secuencia.push(colors[Math.floor(Math.random() * colors.length)]);
+                this.actualizarTurno(true);
+                this.reproducirSecuencia(secuencia);
+            };
+
+            this.reproducirSecuencia = function (secuencia) {
+                deshabilitarBotones();
+                let i = 0;
+                interval = setInterval(() => {
+                    document.querySelector(`.${secuencia[i]}`).style.filter = "brightness(2)";
+                    setTimeout(() => {
+                        document.querySelector(`.${secuencia[i]}`).style.filter = "brightness(1)";
+                        i++;
+                        if (i >= secuencia.length) {
+                            clearInterval(interval);
+                            document.querySelectorAll('.red, .blue, .yellow, .green').forEach(boton => {
+                                boton.style.filter = "brightness(1)";
+                            });
+                            this.actualizarTurno(false);
+                            habilitarBotones();
+                        }
+                    }, intervalTime);
+                }, intervalTime + 500);
+
+            };
+            this.play = function (color){
+                if (color === secuencia[paso]) {
+                    paso++;
+                    if (paso === secuencia.length) {
+                        paso = 0;
+                        setTimeout(() => {
+                            nivel++;
+                            this.mostrarSecuencia();
+                        }, 1000);
+                    }
+                } else {
+                    alert("¡Incorrecto! Fin del juego");
+                    clearInterval(interval)
+                    terminarJuego(nivel)
+                    secuencia = [];
+                    nivel = 1;
+                    paso = 0;
+                }
+            
+            }
+
+        }
+
+        function init(){
+            simon = new Simon();
+            simon.init()
+        }
+
+        init()
+    </script>
+</body>
+</html>

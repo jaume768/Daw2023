@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script type="module">
+        "use strict"
+
+        import {findAllUsuarios} from "./service/UsuariService.js";
+
+        const usuarios = await findAllUsuarios();
+
+        (async function(){
+
+            document.querySelector('#app').innerHTML += '<ul>';
+
+            for (let i=0; i < usuarios.length; i++){
+            document.querySelector('#app').innerHTML += '<li>';
+
+                document.querySelector('#app').innerHTML += usuarios[i].nom;
+                document.querySelector('#app').innerHTML += usuarios[i].cognom1;
+                document.querySelector('#app').innerHTML += '</li>';
+
+            }
+
+            document.querySelector('#app').innerHTML += '</ul>';
+
+
+        })();
+
+    </script>
+</body>
+</html>

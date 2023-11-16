@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Hola</p>
+    <div id="app">
+
+    </div>
+    <!--script type="module" src="script_regular1.js"></-script>
+    <script type="module" src="script_regular2.js"></!script-->
+    <script type="module">
+        "use strict";
+        import {x as peticions} from './modulAsincrion.js'
+        
+        (async function(){
+            const numeros = await peticions()
+            for (let i = 0; i < numeros.length; i++) {
+                
+                document.querySelector("#app").innerHTML += `<p>${numeros[i]}</p>`;
+        
+            }
+        })()
+    </script>   
+</body>
+</html>
