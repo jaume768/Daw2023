@@ -1,5 +1,4 @@
 import { Usuario } from "../model/Usuario.js";
-import { getTransportByid } from "./TransportService.js";
 
 export async function findAllUsuarios() {
 
@@ -11,13 +10,16 @@ export async function findAllUsuarios() {
 
     const usuariosResueltos = await getUsuaris;
 
-    return usuariosResueltos.map(async function (jsonUsuari) {
-        return await jsonToUsuari(jsonUsuari);
-    });
+
+    const all = await Promise.all(usuariosResueltos.map(function (jsonUsuari) {
+        return jsonToUsuari(jsonUsuari);
+    }))
+
+    return all;
+
 }
 
 
-async function jsonToUsuari(json) {
-    const transport = await getTransportByid(json.transport_idtransport);
-    return new Usuario(json.nom, json.cognom1, json.cognom2, transport);
+function jsonToUsuari(json) {
+    return new Usuario(json.nom, json.cognom1, json.cognom2, json.transport_idtransport);
 }

@@ -10,7 +10,7 @@ export async function getTransportByid(id) {
                 "Content-Type": "application/x-www-form-urlencoded"
             },
             body: 'idtransport=' + id
-        }) //para decirle que es un POST pasamos un segundo parámetro que es un OBJETO
+        })
         .then(function (resposta) {
             return resposta.json();
         });
