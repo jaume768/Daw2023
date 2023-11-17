@@ -1,16 +1,12 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Jaume Fernandez
-  Date: 30/10/2023
-  Time: 12:16
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page isELIgnored="false"%>
 <html>
-  <head>
-    <title>$Title$</title>
-  </head>
-  <body>
-  $END$
-  </body>
+<head>
+    <title>Title</title>
+</head>
+<body>
+    <h1>Fotos del jsp</h1>
+    <p>Aqui hi anira el bucle</p>
+</body>
 </html>
