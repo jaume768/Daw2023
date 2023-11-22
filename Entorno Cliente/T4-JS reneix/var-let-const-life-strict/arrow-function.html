@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <button id="boto1">Press me 1</button>
+        <button id="boto2">Press me 2</button>
+    </div>
+    <script>
+        document.querySelector("#boto1").addEventListener('click',function(){
+            console.log(this)
+        })
+
+        document.querySelector("#boto2").addEventListener('click',()=>{
+            console.log(this)
+        })
+
+        function Persona(nom,cognom){
+            this.nom = nom;
+            this.cognom = cognom;
+            this.nomComplet = function(){
+                return this.nom + " " + this.cognom;
+            }
+            this.nomComplet2 = ()=>{
+                return this.nom + " " + this.cognom;
+            }
+        }
+    </script>
+</body>
+</html>

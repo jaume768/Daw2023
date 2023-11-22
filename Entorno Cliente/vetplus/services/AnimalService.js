@@ -28,6 +28,34 @@ export async function getAnimal(id){
 }
 
 
+export async function save(nombre,sexo,numeroRegistro,tipo){
+    try {
+        const response = await fetch("https://theteacher.codiblau.com/public/vetplus/save",{
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                animal: {
+                    idanimal: null,
+                    nom: nombre,
+                    sexe: sexo,
+                    numregistre: numeroRegistro,
+                    tipus: tipo
+                }
+            })
+        });
+        if (!response.ok){
+            throw new Error('Error');
+        }
+
+        const saveAnimal = response;
+        return saveAnimal;
+    }catch (error){
+        console.error('Error',error.message);
+        throw error;
+    }
+}
 
 function JsonToAnimal(json){
     return new Animal(json.idanimal,json.nom,json.sexe,json.numregistre,json.tipus)

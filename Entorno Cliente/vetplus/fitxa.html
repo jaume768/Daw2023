@@ -9,7 +9,7 @@
     <div id="app"></div>
     <script type="module">
         "use strict";
-        import { getAnimal } from "./services/AnimalService.js";
+        import { getAnimal,save } from "./services/AnimalService.js";
 
         (async function () {
             const url = new URL(window.location.href);
@@ -71,30 +71,10 @@
                     }
                 });
             
-                console.log(animalData);
-            
-                const url = "https://theteacher.codiblau.com/public/vetplus/save";
-                const method = "POST";
-            
-                try {
-                    const response = await fetch(url, {
-                        method: method,
-                        headers: {
-                            "Content-Type": "application/json",
-                        },
-                        body: JSON.stringify(animalData),
-                    });
-                
-                    if (response.ok) {
-                        console.log("Animal guardado correctamente");
-                    } else {
-                        const errorData = await response.json();
-                        console.error(`Error al guardar el animal: ${errorData.message}`);
-                    }
-                } catch (error) {
-                    console.error("Error de red:", error);
-                }
-            });
+                console.log(animalData)
+
+                save(animalData.nom,animalData.sexe,animalData.numregistre,animalData.tipus)
+            })        
         })();
     </script>
 </body>
